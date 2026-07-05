@@ -1,0 +1,20 @@
+# ============================================================
+#  NutriMind — Python Dependencies
+#  Tested on Python 3.14 / Windows
+# ============================================================
+
+# Web Framework
+Flask==3.0.3
+Flask-CORS==4.0.1
+
+# IBM Watsonx.ai SDK (1.5.x+ supports Python 3.12/3.13/3.14)
+ibm-watsonx-ai==1.5.14
+
+# Environment variables
+python-dotenv==1.0.1
+
+# HTTP requests
+requests>=2.32.0
+
+# Production WSGI server (cross-platform; use gunicorn on Linux/macOS)
+waitress==3.0.1
