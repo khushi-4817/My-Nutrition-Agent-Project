@@ -1,0 +1,262 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>NutriMind — Project Overview</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;line-height:1.6;background:#f8fafc;color:#1f2328}
+  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 48px}
+
+  /* Header */
+  .hero{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:28px;margin-bottom:24px;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(22,163,74,.12),transparent 70%);pointer-events:none}
+  .brand{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .brand-icon{width:44px;height:44px;background:linear-gradient(135deg,#16a34a,#22c55e);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px}
+  .brand-name{font-size:1.6rem;font-weight:800;color:#0f172a}
+  .brand-sub{font-size:.8rem;color:#57606a;margin-top:2px}
+  .hero p{color:#475569;font-size:.9rem;max-width:580px}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .badge{padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:600;border:1px solid}
+  .b-green{background:#f0fdf4;color:#16a34a;border-color:#bbf7d0}
+  .b-blue{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}
+  .b-purple{background:#faf5ff;color:#7c3aed;border-color:#ddd6fe}
+  .b-orange{background:#fffbeb;color:#d97706;border-color:#fde68a}
+
+  /* Section */
+  h2{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#57606a;margin:24px 0 10px}
+
+  /* File tree */
+  .filetree{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;font-family:'Courier New',monospace;font-size:.82rem;line-height:1.8}
+  .tree-folder{color:#d97706;font-weight:700}
+  .tree-file{color:#1d4ed8}
+  .tree-note{color:#57606a;font-size:.74rem}
+  .tree-main{color:#16a34a;font-weight:700}
+  .tree-indent1{padding-left:18px}
+  .tree-indent2{padding-left:36px}
+
+  /* Feature grid */
+  .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:500px){.feat-grid{grid-template-columns:1fr}}
+  .feat-card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px;display:flex;gap:10px;align-items:flex-start}
+  .feat-icon{font-size:1.2rem;flex-shrink:0;margin-top:1px}
+  .feat-title{font-weight:700;font-size:.85rem;color:#0f172a}
+  .feat-desc{font-size:.78rem;color:#57606a;margin-top:2px}
+
+  /* Steps */
+  .steps{display:flex;flex-direction:column;gap:10px}
+  .step{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px;display:flex;gap:14px;align-items:flex-start}
+  .step-num{width:28px;height:28px;background:#16a34a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;flex-shrink:0}
+  .step-title{font-weight:700;font-size:.88rem;color:#0f172a}
+  .step-body{font-size:.8rem;color:#57606a;margin-top:3px}
+  code{background:#f1f5f9;border:1px solid #e2e8f0;padding:1px 6px;border-radius:4px;font-size:.8em;color:#0f172a}
+
+  /* API table */
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden}
+  thead{background:#f7f8fa}
+  th{padding:9px 12px;text-align:left;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:#57606a;border-bottom:1px solid #e5e7eb}
+  td{padding:8px 12px;font-size:.82rem;border-bottom:1px solid #f1f5f9;vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .method{display:inline-block;padding:1px 7px;border-radius:4px;font-size:.7rem;font-weight:700;font-family:monospace}
+  .get{background:#eff6ff;color:#1d4ed8}.post{background:#f0fdf4;color:#16a34a}.del{background:#fef2f2;color:#dc2626}
+
+  /* Customization */
+  .cust-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:500px){.cust-grid{grid-template-columns:1fr}}
+  .cust-card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px}
+  .cust-title{font-weight:700;font-size:.85rem;color:#0f172a;margin-bottom:4px}
+  .cust-desc{font-size:.78rem;color:#57606a}
+  .cust-file{font-size:.72rem;color:#7c3aed;font-weight:600;margin-top:6px;font-family:monospace}
+
+  /* Alert box */
+  .alert{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px;font-size:.82rem;color:#92400e;margin-bottom:10px}
+  .alert strong{color:#78350f}
+
+  .footer{text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid #e5e7eb;font-size:12px;color:#8b949e}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  
+  <div class="hero">
+    <div class="brand">
+      <div class="brand-icon">🌿</div>
+      <div>
+        <div class="brand-name">NutriMind</div>
+        <div class="brand-sub">AI-Powered Nutrition Agent</div>
+      </div>
+    </div>
+    <p>A complete AI nutrition coaching web app built with Python Flask and IBM Watsonx.ai Granite models. Features chat UI, meal planning, BMI calculator, family profiles, dark mode, and deep Indian food knowledge.</p>
+    <div class="badges">
+      <span class="badge b-green">✅ 10 Files Generated</span>
+      <span class="badge b-blue">🐍 Python Flask</span>
+      <span class="badge b-purple">🤖 IBM Granite AI</span>
+      <span class="badge b-orange">🇮🇳 Indian Cuisine</span>
+    </div>
+  </div>
+
+  
+  <h2>📁 Project Structure</h2>
+  <div class="filetree">
+    <div class="tree-folder">NutriMind/</div>
+    <div class="tree-indent1"><span class="tree-main">app.py</span> <span class="tree-note">← Flask backend + 11 API routes (23.8 KB)</span></div>
+    <div class="tree-indent1"><span class="tree-file">requirements.txt</span> <span class="tree-note">← Python dependencies</span></div>
+    <div class="tree-indent1"><span class="tree-file">.env</span> <span class="tree-note">← Your IBM API Key &amp; secrets (never commit!)</span></div>
+    <div class="tree-indent1"><span class="tree-file">.env.example</span> <span class="tree-note">← Template (safe to commit)</span></div>
+    <div class="tree-indent1"><span class="tree-file">README.md</span> <span class="tree-note">← Full deployment guide (8.9 KB)</span></div>
+    <div class="tree-indent1 tree-folder">modules/</div>
+    <div class="tree-indent2"><span class="tree-main">agent_instructions.py</span> <span class="tree-note">← CUSTOMIZE AGENT HERE (15 KB)</span></div>
+    <div class="tree-indent2"><span class="tree-file">__init__.py</span></div>
+    <div class="tree-indent1 tree-folder">templates/</div>
+    <div class="tree-indent2"><span class="tree-file">index.html</span> <span class="tree-note">← Full SPA with 6 tab panels (48.4 KB)</span></div>
+    <div class="tree-indent1 tree-folder">static/</div>
+    <div class="tree-indent2 tree-folder">css/</div>
+    <div class="tree-indent2"><span class="tree-file">  style.css</span> <span class="tree-note">← Light/dark themes, animations (42.2 KB)</span></div>
+    <div class="tree-indent2 tree-folder">js/</div>
+    <div class="tree-indent2"><span class="tree-file">  app.js</span> <span class="tree-note">← Full frontend logic (43 KB)</span></div>
+  </div>
+
+  
+  <h2>✨ Features</h2>
+  <div class="feat-grid">
+    <div class="feat-card">
+      <div class="feat-icon">🤖</div>
+      <div><div class="feat-title">AI Chat Agent</div><div class="feat-desc">Real-time nutrition advice via IBM Granite. Falls back to helpful demo mode if API not configured.</div></div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📊</div>
+      <div><div class="feat-title">Nutrition Dashboard</div><div class="feat-desc">SVG macro donut chart, calorie target cards, Indian food calorie reference table.</div></div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🗓️</div>
+      <div><div class="feat-title">AI Meal Planner</div><div class="feat-desc">1–7 day plans with goal, diet type, and calorie inputs. Copy &amp; discuss with AI.</div></div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">⚖️</div>
+      <div><div class="feat-title">BMI Calculator</div><div class="feat-desc">BMI, BMR, TDEE, goal-based calorie targets, macro breakdown bars. WHO Asian guidelines.</div></div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">👨‍👩‍👧‍👦</div>
+      <div><div class="feat-title">Family Profiles</div><div class="feat-desc">Track up to 10 family members. Per-member meal plan requests. Family-wide plan generation.</div></div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🌙</div>
+      <div><div class="feat-title">Dark Mode</div><div class="feat-desc">Full light/dark theme via CSS custom properties. Persisted in localStorage.</div></div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🇮🇳</div>
+      <div><div class="feat-title">Indian Food Intelligence</div><div class="feat-desc">Regional cuisines (North/South/East/West), traditional superfoods, fasting foods, calorie database.</div></div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📱</div>
+      <div><div class="feat-title">Mobile Responsive</div><div class="feat-desc">Bootstrap 5 grid with custom breakpoints. Tab icons adapt on small screens.</div></div>
+    </div>
+  </div>
+
+  
+  <h2>🚀 Quick Start (4 Steps)</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Install dependencies</div>
+        <div class="step-body"><code>pip install -r requirements.txt</code></div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Get IBM Credentials</div>
+        <div class="step-body">Create API key at <strong>cloud.ibm.com/iam/apikeys</strong> · Create project at <strong>dataplatform.cloud.ibm.com</strong></div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Edit <code>.env</code></div>
+        <div class="step-body">Set <code>IBM_API_KEY</code>, <code>WATSONX_PROJECT_ID</code>, and <code>FLASK_SECRET_KEY</code></div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">Run the app</div>
+        <div class="step-body"><code>python app.py</code> → open <strong>http://localhost:5000</strong></div>
+      </div>
+    </div>
+  </div>
+
+  
+  <h2>🔧 Agent Customization — <code>modules/agent_instructions.py</code></h2>
+  <div class="cust-grid">
+    <div class="cust-card">
+      <div class="cust-title">Section 1 — Persona &amp; Tone</div>
+      <div class="cust-desc">Change the agent's name, personality, communication style, and warmth level.</div>
+      <div class="cust-file">AGENT_PERSONA = "..."</div>
+    </div>
+    <div class="cust-card">
+      <div class="cust-title">Section 2 — Diet Specializations</div>
+      <div class="cust-desc">Add or remove diet expertise areas like Keto, Ayurvedic, or sports nutrition.</div>
+      <div class="cust-file">DIET_SPECIALIZATIONS = [...]</div>
+    </div>
+    <div class="cust-card">
+      <div class="cust-title">Section 3 — Indian Food Knowledge</div>
+      <div class="cust-desc">Extend regional cuisine data, add local superfoods, seasonal recipes, or fasting rules.</div>
+      <div class="cust-file">INDIAN_FOOD_KNOWLEDGE = "..."</div>
+    </div>
+    <div class="cust-card">
+      <div class="cust-title">Section 4 — Safety Rules</div>
+      <div class="cust-desc">Modify medical disclaimers, calorie minimums, restricted topics, and escalation rules.</div>
+      <div class="cust-file">SAFETY_RULES = "..."</div>
+    </div>
+    <div class="cust-card">
+      <div class="cust-title">Section 5 — Response Format</div>
+      <div class="cust-desc">Control whether responses use tables, bullets, emoji headers, or plain text.</div>
+      <div class="cust-file">RESPONSE_FORMAT = "..."</div>
+    </div>
+    <div class="cust-card">
+      <div class="cust-title">Section 6–7 — Family &amp; BMI</div>
+      <div class="cust-desc">Adjust age-group nutrition rules, BMI category thresholds, and Asian guideline cutoffs.</div>
+      <div class="cust-file">FAMILY_NUTRITION_RULES / BMI_GUIDELINES</div>
+    </div>
+  </div>
+
+  
+  <h2>🌐 API Endpoints</h2>
+  <table>
+    <thead><tr><th>Method</th><th>Endpoint</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><span class="method get">GET</span></td><td><code>/</code></td><td>Main SPA page</td></tr>
+      <tr><td><span class="method post">POST</span></td><td><code>/api/chat</code></td><td>Send message → AI response</td></tr>
+      <tr><td><span class="method post">POST</span></td><td><code>/api/bmi</code></td><td>Calculate BMI / BMR / TDEE / macros</td></tr>
+      <tr><td><span class="method post">POST</span></td><td><code>/api/profile</code></td><td>Save user nutrition profile</td></tr>
+      <tr><td><span class="method get">GET</span></td><td><code>/api/profile</code></td><td>Get current profile</td></tr>
+      <tr><td><span class="method post">POST</span></td><td><code>/api/meal-plan</code></td><td>Generate AI meal plan</td></tr>
+      <tr><td><span class="method get">GET</span></td><td><code>/api/family</code></td><td>List family members</td></tr>
+      <tr><td><span class="method post">POST</span></td><td><code>/api/family</code></td><td>Add family member</td></tr>
+      <tr><td><span class="method del">DELETE</span></td><td><code>/api/family/&lt;id&gt;</code></td><td>Remove family member</td></tr>
+      <tr><td><span class="method get">GET</span></td><td><code>/api/status</code></td><td>Health check + Watsonx connection status</td></tr>
+      <tr><td><span class="method post">POST</span></td><td><code>/api/clear-chat</code></td><td>Clear conversation history</td></tr>
+    </tbody>
+  </table>
+
+  
+  <h2>🔐 Important Notes</h2>
+  <div class="alert">
+    <strong>Never commit <code>.env</code> to Git!</strong> It contains your IBM API key. The <code>.env.example</code> file (with placeholder values) is safe to commit. Generate a strong Flask secret key with:<br />
+    <code>python -c "import secrets; print(secrets.token_hex(32))"</code>
+  </div>
+  <div class="alert" style="background:#f0fdf4;border-color:#bbf7d0;color:#14532d">
+    <strong>Demo Mode:</strong> The app works without IBM credentials — it shows helpful sample responses so you can test the UI. Configure <code>IBM_API_KEY</code> + <code>WATSONX_PROJECT_ID</code> in <code>.env</code> to enable full Granite AI responses.
+  </div>
+
+  <div class="footer">
+    <div style="margin-bottom:6px">Made with IBM Bob</div>
+    <div>NutriMind v1.0.0 · IBM Watsonx Granite · Python Flask · Bootstrap 5</div>
+  </div>
+
+</div>
+</body>
+</html>
